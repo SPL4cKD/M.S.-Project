@@ -1,0 +1,34 @@
+import GuiVersion
+import GuiDBM
+import GuiFILE
+import GuiML
+import GuiPT
+import GuiMO
+import GuiVC
+import GuiBC
+import GuiIC
+import GuiPC
+import GuiFan
+import GuiMacP
+import GuiMR
+import GuiMRF
+import GuiSC
+import GuiOut
+import GuiRun
+
+#The following line is for backwards-compatibility, DO NOT DELETE IT.
+GuiVersion.RecordVersion("2017.0.0.11893")
+
+GuiFILE.SetMode("FASTRAN")
+GuiFILE.Open("C:/Users/spl4ckd/Documents/Aerospace.Courses/AE.295.A_B/Plasma Blackout/CFD/RAM/Sims/FASTRAN/Past runs - Run 9/Run 9 - 61km - Laminar/RAM_C_II_2D.DTF")
+GuiDBM.AddToComposition(GuiDBM.SPECIES, "NO+", "E", -1, GuiDBM.MODEL)
+GuiMO.Set("Shared/Polar", "Non Axisymmetric")
+GuiFILE.Save()
+GuiSC.Set("Iter/Cycles", 3000)
+GuiFILE.Save()
+GuiSC.Set("Spatial/SpatialAccuracyOrder", "First Order")
+GuiFILE.Save()
+GuiOut.Set("Output/Output_Interval", 60)
+GuiFILE.Save()
+GuiRun.Submit()
+GuiFILE.CloseAllSim()
