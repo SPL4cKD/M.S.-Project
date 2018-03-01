@@ -1,0 +1,106 @@
+import GuiVersion
+import GuiDBM
+import GuiFILE
+import GuiML
+import GuiPT
+import GuiMO
+import GuiVC
+import GuiBC
+import GuiIC
+import GuiPC
+import GuiFan
+import GuiMacP
+import GuiMR
+import GuiMRF
+import GuiSC
+import GuiOut
+import GuiRun
+
+#The following line is for backwards-compatibility, DO NOT DELETE IT.
+GuiVersion.RecordVersion("2014.0.0.11217")
+
+GuiFILE.SetMode("FASTRAN")
+GuiFILE.Open("C:/Users/Jared/Documents/Aerospace.Courses/Master's Project/CFD/18_14_reactions/18_14_reactions.DTF")
+GuiPT.Set("Chem", 1)
+GuiMO.Set("Chem/ThermalMode", "Two Temp. Non-Equilibrium")
+GuiMO.Set("Chem/SpeciesDatabase", "Molecular")
+GuiMO.Set("Chem/SolverFor", "Mixture Fractions")
+GuiMO.Set("Chem/ChemistryModel", "Reacting (Finite Rate)")
+GuiMO.Set("Chem/ThermalMode", "Two Temp. Non-Equilibrium")
+GuiBC.Set([16], "Flow/u", 7000)
+GuiBC.Set([16], "Flow/p", 5.25)
+GuiBC.Set([16], "Flow/T", 219.7)
+GuiIC.Set([18], "Flow/u", 7000)
+GuiIC.Set([18], "Flow/p", 5.25)
+GuiIC.Set([18], "Flow/T", 219.7)
+GuiSC.Set("Shared/Transient_eval_method", "Transient")
+GuiSC.Set("Iter/Cycles", 50000)
+GuiSC.Set("Shared/EndTime", 1)
+GuiSC.Set("Relax/RampingIterations", 2000)
+GuiSC.Set("Spatial/LinearWaves", )
+GuiSC.Set("Spatial/LinearWaves", 0.30000001192)
+GuiSC.Set("Spatial/NonLinearWaves", 0.30000001192)
+GuiOut.Set("Output/OutputFrequency", "Specified Interval")
+GuiOut.Set("Output/Output_Interval", 1000)
+GuiDBM.AddItem(GuiDBM.MIXTURE, "New_Mixture", GuiDBM.MODEL)
+GuiDBM.Copy(GuiDBM.SPECIES, "M", GuiDBM.ESI, "M", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.Copy(GuiDBM.SPECIES, "N", GuiDBM.ESI, "N", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.Copy(GuiDBM.SPECIES, "N2", GuiDBM.ESI, "N2", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.Copy(GuiDBM.SPECIES, "NO", GuiDBM.ESI, "NO", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.Copy(GuiDBM.SPECIES, "O", GuiDBM.ESI, "O", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.Copy(GuiDBM.SPECIES, "O2", GuiDBM.ESI, "O2", GuiDBM.MODEL, "", "18_14_reactions", True)
+GuiDBM.SetNotes(GuiDBM.MIXTURE, "New_Mixture", "Mass Fraction", GuiDBM.MODEL)
+GuiDBM.Rename(GuiDBM.MIXTURE, "New_Mixture", "Mixture1", GuiDBM.MODEL)
+GuiDBM.AddToComposition(GuiDBM.MIXTURE, "Mixture1", "N", 0.001000, GuiDBM.MODEL)
+GuiDBM.AddToComposition(GuiDBM.MIXTURE, "Mixture1", "N2", 0.747000, GuiDBM.MODEL)
+GuiDBM.AddToComposition(GuiDBM.MIXTURE, "Mixture1", "NO", 0.001000, GuiDBM.MODEL)
+GuiDBM.AddToComposition(GuiDBM.MIXTURE, "Mixture1", "O", 0.001000, GuiDBM.MODEL)
+GuiDBM.AddToComposition(GuiDBM.MIXTURE, "Mixture1", "O2", 0.250000, GuiDBM.MODEL)
+GuiDBM.AddItem(GuiDBM.BULKREACTION, "New_Volume_Reaction", GuiDBM.MODEL)
+GuiDBM.AddReactionStep(GuiDBM.BULKREACTION, "New_Volume_Reaction", "", GuiDBM.MODEL)
+GuiDBM.SetNotes(GuiDBM.BULKREACTION, "New_Volume_Reaction", "Chemical", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Equation", 1, "N2+M<->2N+M", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ap", 1, 3.6E+018, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_n", 1, -1.6, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/BackwardRateByEquilibrium", 1, "CONST_BY_EQUIL", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ea/R", 1, 113200, GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodySpecies", 1, ['N','N2','NO','O','O2'], GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodyEfficiency", 1, [3,1,1,3,1], GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodyExponent", 1, [0,0,0,0,0], GuiDBM.MODEL)
+GuiDBM.AddReactionStep(GuiDBM.BULKREACTION, "New_Volume_Reaction", "", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Equation", 2, "O2+M<->2O+M", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ap", 2, 2.75E+016, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_n", 2, -1, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ea/R", 2, 59500, GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodySpecies", 2, ['N','N2','NO','O','O2'], GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodyEfficiency", 2, [2,1,1,2,1], GuiDBM.MODEL)
+GuiDBM.Set2D(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/ThirdBodyExponent", 2, [0,0,0,0,0], GuiDBM.MODEL)
+GuiDBM.AddReactionStep(GuiDBM.BULKREACTION, "New_Volume_Reaction", "", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Equation", 3, "NO+M<->N+O+M", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ap", 3, 2.3E+014, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_n", 3, -0.5, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ea/R", 3, 75500, GuiDBM.MODEL)
+GuiDBM.AddReactionStep(GuiDBM.BULKREACTION, "New_Volume_Reaction", "", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Equation", 4, "N2+O<->NO+N", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ap", 4, 31800000000, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_n", 4, 0.1, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ea/R", 4, 37700, GuiDBM.MODEL)
+GuiDBM.AddReactionStep(GuiDBM.BULKREACTION, "New_Volume_Reaction", "", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Equation", 5, "NO+O<->O2+N", GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ap", 5, 216000, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_n", 5, 1.29, GuiDBM.MODEL)
+GuiDBM.SetListWithIndex(GuiDBM.BULKREACTION, "New_Volume_Reaction", "ReactStep/Forward_Ea/R", 5, 19220, GuiDBM.MODEL)
+GuiDBM.Rename(GuiDBM.BULKREACTION, "New_Volume_Reaction", "Reactions", GuiDBM.MODEL)
+GuiMO.Set("Chem/BulkReaction", "Reactions")
+GuiBC.Set([16], "Chem/InternalT", 219.7)
+GuiBC.Set([16], "Chem/Mixture", "Mixture1")
+GuiIC.Set([18], "Chem/InternalT", 219.7)
+GuiIC.Set([18], "Chem/Mixture", "Mixture1")
+GuiFILE.Save()
+GuiRun.Submit()
+GuiBC.Set([15], "Flow/Sub_Type", "Extrapolated")
+GuiFILE.Save()
+GuiRun.Submit()
+GuiRun.Submit()
+GuiRun.Submit()
+GuiFILE.CloseCurrentSim()

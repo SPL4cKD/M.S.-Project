@@ -1,0 +1,38 @@
+
+ [ERROR]: (CFD-FASTRAN-SOLVER) par_util -query output was not valid Python
+          code.  Output was as follows:
+          [INFO]: (par_util) Executing par_util -query -dtf
+          Apollo_CM_18_14.backup
+ 
+          [INFO]: (par_util) No working directory specified for host: Host1
+          Using current working directory: C:\Users\spl4ckd\DOCUME~1\AEROSP~1.
+          COU\AE295~1.A_B\PLASMA~1\CFD\APOLLO~1\DRIVE-~1\18_14
+ 
+          #PYTHON BEGIN
+          RunType = RunTypeMDICE
+          PolyModuleOn = False
+          ChimeraModuleOn = False
+          StressModuleOn = False
+          MovingModuleOn = False
+          Nprocs = 1
+          MasterProc = 1
+          ChimeraProc = 0
+          StressProc = 0
+          NzonesTotal = 1
+          NzonesFluid = 1
+          NprocsWithZones = 1
+          NprocsFastran = 1
+ 
+          HostList = [ 'Host1',
+ 
+          WorkingDirs = [ r'''C:\Users\spl4ckd\DOCUME~1\AEROSP~1.COU\AE295~1.A
+          _B\PLASMA~1\CFD\APOLLO~1\DRIVE-~1\18_14''',
+ 
+          ProcessType = [ 'Master',
+ 
+          NzonesPerProcess = [ 1,
+ 
+          NewModelName = [ r'''Apollo_CM_18_14.backup.1''',
+          #PYTHON END
+          [INFO]: (par_util) Exit status --- OK.
+

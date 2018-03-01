@@ -1,0 +1,387 @@
+ 
+ *******************************************************************************
+ ******************** C F D - F A S T R A N - S O L V E R  *********************
+ *******************************************************************************
+ 
+ Date                       : 08/22/2017 02:34:39
+ DTF File Name              : 18_14_reactions.DTF
+ CFD-FASTRAN-GUI Version    : V2014.0.0
+ CFD-FASTRAN-SOLVER Version : V2014.0.1.8 DTF V7.8.6 07/15/2014 14:09:26
+ Build platform             : KELVIN pc-windows-nt6-x86_64 CYGWIN_NT-6.1-WOW64 1.7.18(0.263/5/3) i686
+ Working Simulation Number  : 1
+ System Information          
+                Machine Name: GM4N
+                OS Name     : 
+                OS Release  : 
+                OS Version  : 
+ 
+ *******************************************************************************
+ ************************ I N P U T   S U M M A R Y ****************************
+ *******************************************************************************
+ -------------------------------------------------------------------------------
+                          FASTRAN Model Description                             
+ -------------------------------------------------------------------------------
+ Model Name       :  18_14_reactions
+ Problem Title    :  None
+ Geometry Scaling :  1.000
+ File Source      :  CFD-GEOM V2014.0.0.12
+ File DTF Version :  7.8.6
+ 
+ -------------------------------------------------------------------------------
+                          Problem Specifications                                
+ -------------------------------------------------------------------------------
+ NZONES    NCYCLES    STEADY    NSUBCYCLES   AXI-SYM    OVERSET
+      1      50000         0             1         F          0
+ 
+ -------------------------------------------------------------------------------
+                          Function Definition / Timing                          
+ -------------------------------------------------------------------------------
+ MOTION_MODELS    START_TIME    END_TIME    PLOT_FORMAT   FORCE_SUMMARIES
+             0     0.000E+00   0.100E+01              1              0
+ MONITOR_POINTS    FORCE_BY_SECTIONS
+              0                    0
+ 
+ -------------------------------------------------------------------------------
+                          Cycle Output-Control Flags                            
+ -------------------------------------------------------------------------------
+ RESTART FREQ   UNIQUE FILES   CHIMERA HOLE-CUT FREQ   6DOF OUTPUT FREQ  
+         1000              F                   Never                  1
+ 
+ -------------------------------------------------------------------------------
+                          Tolerances                                            
+ -------------------------------------------------------------------------------
+ TINY_LIMIT     BIG_LIMIT    GEOM_MINIMUM    CONVERGENCE_EPSILON
+  0.100E-19     0.100E+21       0.100E-19              0.100E-19
+ 
+ -------------------------------------------------------------------------------
+                          Tolerances for Chimera Hole Cutting                   
+ -------------------------------------------------------------------------------
+ EPSILON_DIST    EPSILON_AREA    EPSILON_RATIO
+    0.100E-13       0.100E-04        0.100E-04
+ 
+ -------------------------------------------------------------------------------
+                          Thermo and Transport                                  
+ -------------------------------------------------------------------------------
+ Gas_Model
+  5 (reacting)
+ Coupled
+ T
+ Thermo-database    Number-of-Species    Number-of-Mixtures
+            1 (molecular)                     5                     1
+ 
+ -------------------------------------------------------------------------------
+                          Gaseous Species List
+ -------------------------------------------------------------------------------
+ N                                                                               
+ N2                                                                              
+ NO                                                                              
+ O                                                                               
+ O2                                                                              
+ 
+ -------------------------------------------------------------------------------
+                          Mixture Definitions
+ -------------------------------------------------------------------------------
+ Mixture #  1: 'Mixture1'
+ Species Name         Mass Fraction
+               N      0.10000E-02
+              N2      0.74700    
+              NO      0.10000E-02
+               O      0.10000E-02
+              O2      0.25000    
+ 
+ -------------------------------------------------------------------------------
+                          Reaction Definition
+ -------------------------------------------------------------------------------
+ REACTION NAME            :  Reactions
+ NUMBER OF REACTION STEPS :     5
+ 
+ REACTION STEP   1
+    REACTION RATE TYPE : GENERAL
+      Reactant           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.10000E+01
+      NO                 0.00000E+00
+      O                  0.00000E+00
+      O2                 0.00000E+00
+      Product           Stiochiometric Coefficient
+      N                  0.20000E+01
+      N2                 0.00000E+00
+      NO                 0.00000E+00
+      O                  0.00000E+00
+      O2                 0.00000E+00
+    FORWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.36000E+19
+      Temperature Exponent     (n):   -0.16000E+01
+      Activation Temperature (E/R):    0.11320E+06
+      Tt-Tv factor                :    0.00000E+00
+    THIRD BODY EFFICIENCIES
+      Species Name         Efficiency
+      N                    0.30000E+01
+      N2                   0.10000E+01
+      NO                   0.10000E+01
+      O                    0.30000E+01
+      O2                   0.10000E+01
+    REACTANT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.10000E+01
+      NO                   0.00000E+00
+      O                    0.00000E+00
+      O2                   0.00000E+00
+    BACKWARD RATE BY EQUILIBRIUM
+    PRODUCT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.20000E+01
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.00000E+00
+      O2                   0.00000E+00
+ 
+ REACTION STEP   2
+    REACTION RATE TYPE : GENERAL
+ 
+ [WARNING]: (cheminit) Specified concentration exponents do not look balanced
+            for species: O                                                                               
+ 
+            Reactant-side stoichiometric coefficient (v')= 
+  0.000000000000000E+000
+            Product-side stoichiometric coefficient (v'')= 
+   2.00000000000000     
+            --> Product-Reaction (v'' - v') =    2.00000000000000     
+            Reactant-side concentration exponent (alpha')= 
+  0.000000000000000E+000
+            Product-side concentration coefficient (alpha'')= 
+   1.00000000000000     
+            --> Product-Reaction (a'' - a') =   -1.00000000000000     
+ 
+            WHEN USING GENERAL RATES, BE CAREFUL THAT YOU DO NOT CREATE MASS.
+ 
+      Reactant           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.00000E+00
+      NO                 0.00000E+00
+      O                  0.00000E+00
+      O2                 0.10000E+01
+      Product           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.00000E+00
+      NO                 0.00000E+00
+      O                  0.20000E+01
+      O2                 0.00000E+00
+    FORWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.27500E+17
+      Temperature Exponent     (n):   -0.10000E+01
+      Activation Temperature (E/R):    0.59500E+05
+      Tt-Tv factor                :    0.00000E+00
+    THIRD BODY EFFICIENCIES
+      Species Name         Efficiency
+      N                    0.20000E+01
+      N2                   0.10000E+01
+      NO                   0.10000E+01
+      O                    0.20000E+01
+      O2                   0.10000E+01
+    REACTANT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.00000E+00
+      O2                   0.10000E+01
+    BACKWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.00000E+00
+      Temperature Exponent     (n):    0.00000E+00
+      Activation Temperature (E/R):    0.00000E+00
+    PRODUCT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.10000E+01
+      O2                   0.00000E+00
+ 
+ REACTION STEP   3
+    REACTION RATE TYPE : GENERAL
+      Reactant           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.00000E+00
+      NO                 0.10000E+01
+      O                  0.00000E+00
+      O2                 0.00000E+00
+      Product           Stiochiometric Coefficient
+      N                  0.10000E+01
+      N2                 0.00000E+00
+      NO                 0.00000E+00
+      O                  0.10000E+01
+      O2                 0.00000E+00
+    FORWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.23000E+15
+      Temperature Exponent     (n):   -0.50000E+00
+      Activation Temperature (E/R):    0.75500E+05
+      Tt-Tv factor                :    0.00000E+00
+    THIRD BODY EFFICIENCIES
+      Species Name         Efficiency
+      N                    0.00000E+00
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.00000E+00
+      O2                   0.00000E+00
+    REACTANT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.00000E+00
+      NO                   0.10000E+01
+      O                    0.00000E+00
+      O2                   0.00000E+00
+    BACKWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.00000E+00
+      Temperature Exponent     (n):    0.00000E+00
+      Activation Temperature (E/R):    0.00000E+00
+    PRODUCT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.10000E+01
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.10000E+01
+      O2                   0.00000E+00
+ 
+ REACTION STEP   4
+    REACTION RATE TYPE : GENERAL
+      Reactant           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.10000E+01
+      NO                 0.00000E+00
+      O                  0.10000E+01
+      O2                 0.00000E+00
+      Product           Stiochiometric Coefficient
+      N                  0.10000E+01
+      N2                 0.00000E+00
+      NO                 0.10000E+01
+      O                  0.00000E+00
+      O2                 0.00000E+00
+    FORWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.31800E+11
+      Temperature Exponent     (n):    0.10000E+00
+      Activation Temperature (E/R):    0.37700E+05
+      Tt-Tv factor                :    0.00000E+00
+    REACTANT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.10000E+01
+      NO                   0.00000E+00
+      O                    0.10000E+01
+      O2                   0.00000E+00
+    BACKWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.00000E+00
+      Temperature Exponent     (n):    0.00000E+00
+      Activation Temperature (E/R):    0.00000E+00
+    PRODUCT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.10000E+01
+      N2                   0.00000E+00
+      NO                   0.10000E+01
+      O                    0.00000E+00
+      O2                   0.00000E+00
+ 
+ REACTION STEP   5
+    REACTION RATE TYPE : GENERAL
+      Reactant           Stiochiometric Coefficient
+      N                  0.00000E+00
+      N2                 0.00000E+00
+      NO                 0.10000E+01
+      O                  0.10000E+01
+      O2                 0.00000E+00
+      Product           Stiochiometric Coefficient
+      N                  0.10000E+01
+      N2                 0.00000E+00
+      NO                 0.00000E+00
+      O                  0.00000E+00
+      O2                 0.10000E+01
+    FORWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.21600E+06
+      Temperature Exponent     (n):    0.12900E+01
+      Activation Temperature (E/R):    0.19220E+05
+      Tt-Tv factor                :    0.00000E+00
+    REACTANT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.00000E+00
+      N2                   0.00000E+00
+      NO                   0.10000E+01
+      O                    0.10000E+01
+      O2                   0.00000E+00
+    BACKWARD RATE CONSTANTS
+      Pre-exponent             (A):    0.00000E+00
+      Temperature Exponent     (n):    0.00000E+00
+      Activation Temperature (E/R):    0.00000E+00
+    PRODUCT CONCENTRATION EXPONENTS
+      Species Name         Exponent
+      N                    0.10000E+01
+      N2                   0.00000E+00
+      NO                   0.00000E+00
+      O                    0.00000E+00
+      O2                   0.10000E+01
+ 
+ -------------------------------------------------------------------------------
+                          Zone Control                                          
+ -------------------------------------------------------------------------------
+ Zone Number  Subcycles   CFL_Start/dt    CFL_End/dt    Ramping Cycles
+           1          1      0.100E+00     0.100E+01              2000
+ 
+ -------------------------------------------------------------------------------
+                          ZONE:            1
+ -------------------------------------------------------------------------------
+ Zone  CellType  Chimera  Moves/Deforms  T_Scheme  nStage  Inner  Inntol
+    1         1        0              0         6       1     20   0.10E-03
+ Ivisc   Flux   S_scheme   Limit_N   Limit_L    Entf_L    Entf_N    Kappa
+     0      1          4         1         1      0.30      0.30     0.00
+ Initial solution will be read from the DTF file.
+ 
+ *******************************************************************************
+ ************************** M E S H   S U M M A R Y ****************************
+ *******************************************************************************
+ 
+ Grid Type: Quadrilaterals/Structured
+ 
+      Zone   I-Dimension   J-Dimension   K-Dimension    Cells
+      ----   -----------   -----------   -----------    -----
+        1         100           100             2        9801
+ 
+ Total Cell Count:         9801
+ 
+ *******************************************************************************
+ ******************* S I M U L A T I O N   S T A R T U P ***********************
+ *******************************************************************************
+ 
+ 
+ --- Allocating Q, XYZ, AREA, VOL 
+ 
+     Allocated  0.276     8-byte MWords for zone    1
+ 
+ --- Estimating memory for time-integration
+ 
+     Requires   1.27     8-byte MWords
+ 
+ --- Allocating IBLANK, IFPOIN, ICPOIN, IFCELL
+ 
+     Allocated  0.200E-01 4-byte MWords for zone    1
+ 
+ --- TOTAL:      1.550 8-byte MWords.
+ --- TOTAL:      0.020 4-byte MWords.
+ --- SUM TOTAL:     12.483 MBytes.
+ 
+ *******************************************************************************
+ ******************** S I M U L A T I O N   O U T P U T ************************
+ *******************************************************************************
+ 
+ ZONE    ITER     CHANGE_Q  CHANGE_CHEM     RES_IMPF        DTMIN        DTMAX    FLOW_TIME     CPU_TIME
+     1   95396   1.0232E-07   3.9013E-08   3.4113E-06   1.0791E-06   1.0791E-06   1.0000E+00   2.6100E+04
+ 
+ [INFO]: (cycle) User specified max simulation time of    1.00000000000000      
+  s has been exceeded.
+ 
+ --- Writing Output Files for CFD-VIEW
+ *******************************************************************************
+  
+ --- Cycles Completed
+  
+ --- Program Execution Completed - Normal Completion. 
+  
